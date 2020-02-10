@@ -1,9 +1,9 @@
 #include "stm8s.h"
-#include "clk.h"
 
 int main()
 {
-	clk_init();
+	CLK->CKDIVR = 0;
+    GPIOB->DDR |= (1 << 5);
 	while(1)
 	{
 		for(volatile uint32_t i = 0x1FFFF; i > 0; i--);
